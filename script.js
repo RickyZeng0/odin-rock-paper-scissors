@@ -6,7 +6,7 @@ function getComputerChoice(){
     else return "scissors";
 }
 
-/*
+/* getHumanChoice() logic:
 1. enter rock, paper or scissors exact string
 2. check valid input
 3. repeat input/go on
@@ -16,3 +16,17 @@ function checkValidInput(userInput){
     if(userInput === "rock" || userInput === "paper" || userInput === "scissors") return true;
     else return false
 }
+
+function getHumanChoice(){
+    let userInput = prompt('Enter "rock"/"paper"/"scissors" (exact string without quote)')
+    while(true){
+        if(checkValidInput(userInput)) break;
+        userInput = prompt(`You have entered ${userInput}, which is invalid input, please enter "rock"/"paper"/"scissors" (exact string without quote)`);
+    }
+    return userInput;
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+getHumanChoice();
