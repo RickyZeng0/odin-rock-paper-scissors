@@ -13,7 +13,9 @@ function getComputerChoice(){
 */
 
 function checkValidInput(userInput){
-    if(userInput === "rock" || userInput === "paper" || userInput === "scissors") return true;
+    //covert it to lowercase before comparision so it is case-insensitive
+    let standardUserInput = userInput.toLowerCase();
+    if(standardUserInput === "rock" || standardUserInput === "paper" || standardUserInput    === "scissors") return true;
     else return false
 }
 
@@ -29,4 +31,4 @@ function getHumanChoice(){
 let humanScore = 0;
 let computerScore = 0;
 
-getHumanChoice();
+//getHumanChoice();
