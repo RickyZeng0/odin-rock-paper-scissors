@@ -28,7 +28,44 @@ function getHumanChoice(){
     return userInput.toLowerCase();
 }
 
+/* Play single round logic
+1. get user and computer input
+2. if user input = computer input , then draw
+3. check user input again computer input , user win/lose
+4. update the score
+*/
+
+function playRound(){
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+
+}
+
+//It check user input against computer output , user is the main body
+//It return the value that humanScore should add on. 1: human win , 0:draw , -1:human lost
+function checkRound(humanSelection,computerSelection){
+    //check if they are the same first so we don't need to check every cases(total 9 cases).
+    if(humanSelection === computerSelection) {
+        return 0;
+    }
+    //it is the else part , as humanSelection is not equal to the computerSelection, there is only win/lost
+    else if(humanSelection == "rock"){
+        if(computerSelection == "paper") return -1;
+        else return 1;
+    }
+    else if(humanSelection == "paper"){
+        if(computerSelection == "scissors") return -1;
+        else return 1;
+    }
+    else{
+        //It is the last case , so humanSelection should be "scissors"
+        if(computerSelection == "rock") return -1;
+        else return 1;
+    }
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-console.log(getHumanChoice());
+//console.log(getHumanChoice());
