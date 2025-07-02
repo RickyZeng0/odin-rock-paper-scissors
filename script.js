@@ -20,15 +20,15 @@ function checkValidInput(userInput){
 }
 
 function getHumanChoice(){
-    let userInput = prompt('Enter "rock"/"paper"/"scissors" (exact string without quote)')
+    let userInput = prompt('Enter "rock"/"paper"/"scissors" (string without quote)')
     while(true){
         if(checkValidInput(userInput)) break;
-        userInput = prompt(`You have entered ${userInput}, which is invalid input, please enter "rock"/"paper"/"scissors" (exact string without quote)`);
+        userInput = prompt(`You have entered ${userInput}, which is invalid input, please enter "rock"/"paper"/"scissors" (string without quote)`);
     }
-    return userInput;
+    return userInput.toLowerCase();
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
-//getHumanChoice();
+console.log(getHumanChoice());
