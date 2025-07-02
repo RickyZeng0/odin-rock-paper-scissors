@@ -38,8 +38,20 @@ function getHumanChoice(){
 function playRound(){
     let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
-
-
+    let humanScoreChange = checkRound(humanSelection,computerSelection);
+    if(humanScoreChange == 1){
+        console.log(`${humanSelection} vs ${computerSelection}. Human Win !`);
+        //this game will only add mark/add zero mark , so no need to handle computerScore
+        humanScore += humanScoreChange;
+    }
+    else if(humanScoreChange == -1){
+        console.log(`${humanSelection} vs ${computerSelection}. Human Lost !`);
+        //the change of humanScore compared to that of computerScore is opposite.
+        computerScore -= humanScoreChange;
+    }
+    else{
+        console.log(`${humanSelection} vs ${computerSelection}. Draw !`);
+    }
 }
 
 //It check user input against computer output , user is the main body
@@ -69,3 +81,4 @@ let humanScore = 0;
 let computerScore = 0;
 
 //console.log(getHumanChoice());
+playRound();
