@@ -77,8 +77,24 @@ function checkRound(humanSelection,computerSelection){
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame(noOfRound){
+    for(let i=1 ; i<=noOfRound ; i++){
+        playRound();
+    }
+    if(humanScore == computerScore) {
+        console.log(`The game is over. ${humanScore} vs ${computerScore}. Draw!`);
+    }
+    else if(humanScore > computerScore){
+        console.log(`The game is over. ${humanScore} vs ${computerScore}. Human win the game !`);
+    }
+    else{
+        console.log(`The game is over. ${humanScore} vs ${computerScore}. Human lost the game !`);
+    }
+}
+
 
 //console.log(getHumanChoice());
-playRound();
+//here the game start
+let humanScore = 0;
+let computerScore = 0;
+playGame(5);
