@@ -56,6 +56,14 @@ function updateScore(humanResult){
     if(humanResult == -1) computerScore += 1;
 }
 
+function endGame(){
+    //first get 5 score then win , there is no draw.
+    if(humanScore == 5) output.textContent += "Human ";
+    else output.textContent += "Computer ";
+    output.textContent += "win the game ! Plese refresh the page to play again.\n";
+    container.removeEventListener("click",runGame);
+}
+
 function runGame(event){
     if(!checkGameEnd()){
         let humanChoice = event.target.textContent;
@@ -63,6 +71,9 @@ function runGame(event){
         let humanResult = checkRound(humanChoice,computerChoice);
         updateScore(humanResult);
         printGameOutput(humanResult,humanChoice,computerChoice);
+    }
+    else{
+        endGame();
     }
 }
 //here the game start
