@@ -45,9 +45,15 @@ function printGameOutput(humanResult,humanChoice,computerChoice){
     let outMessage = "";
     if(humanResult == 1) outMessage += 'You Win !';
     else if(humanResult == 0) outMessage += 'Draw !';
-    else outMessage += 'You lost!';
-    outMessage += `Human: ${humanChoice} vs Computer: ${computerChoice} \n`;
+    else outMessage += 'You lost!   ';
+    outMessage += ` Human: ${humanChoice} vs Computer: ${computerChoice}
+         ${humanScore} vs ${computerScore}\n`;
     output.textContent += outMessage;
+}
+
+function updateScore(humanResult){
+    if(humanResult == 1) humanScore += 1;
+    if(humanResult == -1) computerScore += 1;
 }
 
 function runGame(event){
@@ -55,9 +61,9 @@ function runGame(event){
         let humanChoice = event.target.textContent;
         let computerChoice = getComputerChoice();
         let humanResult = checkRound(humanChoice,computerChoice);
+        updateScore(humanResult);
         printGameOutput(humanResult,humanChoice,computerChoice);
     }
 }
-
 //here the game start
 container.addEventListener("click",runGame);
