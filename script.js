@@ -67,7 +67,7 @@ function endGame(){
 function runGame(event){
     if(!checkGameEnd()){
         if(event.target.id !== "user-input-container"){
-            let humanChoice = event.target.textContent;
+            let humanChoice = event.target.id;
             let computerChoice = getComputerChoice();
             let humanResult = checkRound(humanChoice,computerChoice);
             updateScore(humanResult);
