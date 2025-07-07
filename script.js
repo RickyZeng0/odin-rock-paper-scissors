@@ -7,7 +7,6 @@ function getComputerChoice(){
 }
 
 
-
 //It check user input against computer output , user is the main body
 //It return the value that humanScore should add on. 1: human win , 0:draw , -1:human lost
 function checkRound(humanSelection,computerSelection){
@@ -31,7 +30,10 @@ function checkRound(humanSelection,computerSelection){
     }
 }
 
-
+function checkGameEnd(){
+    if(humanScore == 5 || computerScore == 5) return true;
+    else return false;
+}
 
 //here the game start
 let humanScore = 0;
