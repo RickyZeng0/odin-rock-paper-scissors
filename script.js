@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-const container = document.querySelector(".user-input-container");
+const container = document.querySelector("#user-input-container");
 const output = document.querySelector(".game-output");
 
 
@@ -66,11 +66,13 @@ function endGame(){
 
 function runGame(event){
     if(!checkGameEnd()){
-        let humanChoice = event.target.textContent;
-        let computerChoice = getComputerChoice();
-        let humanResult = checkRound(humanChoice,computerChoice);
-        updateScore(humanResult);
-        printGameOutput(humanResult,humanChoice,computerChoice);
+        if(event.target.id !== "user-input-container"){
+            let humanChoice = event.target.textContent;
+            let computerChoice = getComputerChoice();
+            let humanResult = checkRound(humanChoice,computerChoice);
+            updateScore(humanResult);
+            printGameOutput(humanResult,humanChoice,computerChoice);
+        }
     }
     else{
         endGame();
