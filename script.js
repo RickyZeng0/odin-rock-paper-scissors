@@ -1,3 +1,9 @@
+let humanScore = 0;
+let computerScore = 0;
+const container = document.querySelector(".user-input-container");
+const output = document.querySelector(".game-output");
+
+
 function getComputerChoice(){
     let randNum = Math.random();
     //0-0.3,0.3-0.6,0.6-0.9, it ensure three choices are generated randomly with equal probability
@@ -36,5 +42,3 @@ function checkGameEnd(){
 }
 
 //here the game start
-let humanScore = 0;
-let computerScore = 0;
