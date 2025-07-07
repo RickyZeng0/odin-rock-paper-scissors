@@ -41,4 +41,13 @@ function checkGameEnd(){
     else return false;
 }
 
+function runGame(event){
+    if(!checkGameEnd()){
+        let humanChoice = event.target.textContent;
+        let computerChoice = getComputerChoice();
+        console.log(humanChoice,computerChoice);
+    }
+}
+
 //here the game start
+container.addEventListener("click",runGame);
