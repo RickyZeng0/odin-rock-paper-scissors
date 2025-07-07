@@ -41,11 +41,21 @@ function checkGameEnd(){
     else return false;
 }
 
+function printGameOutput(humanResult,humanChoice,computerChoice){
+    let outMessage = "";
+    if(humanResult == 1) outMessage += 'You Win !';
+    else if(humanResult == 0) outMessage += 'Draw !';
+    else outMessage += 'You lost!';
+    outMessage += `Human: ${humanChoice} vs Computer: ${computerChoice} \n`;
+    output.textContent += outMessage;
+}
+
 function runGame(event){
     if(!checkGameEnd()){
         let humanChoice = event.target.textContent;
         let computerChoice = getComputerChoice();
-        console.log(humanChoice,computerChoice);
+        let humanResult = checkRound(humanChoice,computerChoice);
+        printGameOutput(humanResult,humanChoice,computerChoice);
     }
 }
 
