@@ -6,53 +6,7 @@ function getComputerChoice(){
     else return "scissors";
 }
 
-/* getHumanChoice() logic:
-1. enter rock, paper or scissors exact string
-2. check valid input
-3. repeat input/go on
-*/
 
-function checkValidInput(userInput){
-    //covert it to lowercase before comparision so it is case-insensitive
-    let standardUserInput = userInput.toLowerCase();
-    if(standardUserInput === "rock" || standardUserInput === "paper" || standardUserInput    === "scissors") return true;
-    else return false
-}
-
-function getHumanChoice(){
-    let userInput = prompt('Enter "rock"/"paper"/"scissors" (string without quote)')
-    while(true){
-        if(checkValidInput(userInput)) break;
-        userInput = prompt(`You have entered ${userInput}, which is invalid input, please enter "rock"/"paper"/"scissors" (string without quote)`);
-    }
-    return userInput.toLowerCase();
-}
-
-/* Play single round logic
-1. get user and computer input
-2. if user input = computer input , then draw
-3. check user input again computer input , user win/lose
-4. update the score
-*/
-
-function playRound(){
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    let humanScoreChange = checkRound(humanSelection,computerSelection);
-    if(humanScoreChange == 1){
-        console.log(`${humanSelection} vs ${computerSelection}. Human Win !`);
-        //this game will only add mark/add zero mark , so no need to handle computerScore
-        humanScore += humanScoreChange;
-    }
-    else if(humanScoreChange == -1){
-        console.log(`${humanSelection} vs ${computerSelection}. Human Lost !`);
-        //the change of humanScore compared to that of computerScore is opposite.
-        computerScore -= humanScoreChange;
-    }
-    else{
-        console.log(`${humanSelection} vs ${computerSelection}. Draw !`);
-    }
-}
 
 //It check user input against computer output , user is the main body
 //It return the value that humanScore should add on. 1: human win , 0:draw , -1:human lost
@@ -77,24 +31,8 @@ function checkRound(humanSelection,computerSelection){
     }
 }
 
-function playGame(noOfRound){
-    for(let i=1 ; i<=noOfRound ; i++){
-        playRound();
-    }
-    if(humanScore == computerScore) {
-        console.log(`The game is over. ${humanScore} vs ${computerScore}. Draw!`);
-    }
-    else if(humanScore > computerScore){
-        console.log(`The game is over. ${humanScore} vs ${computerScore}. Human win the game !`);
-    }
-    else{
-        console.log(`The game is over. ${humanScore} vs ${computerScore}. Human lost the game !`);
-    }
-}
 
 
-//console.log(getHumanChoice());
 //here the game start
 let humanScore = 0;
 let computerScore = 0;
-playGame(5);
